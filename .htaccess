@@ -1,0 +1,52 @@
+# Pawganic Supplies - Security Configuration
+
+# Prevent directory listing
+Options -Indexes
+
+# Disable server signature
+ServerSignature Off
+
+# Custom Error Pages
+ErrorDocument 403 /petv10/403.php
+ErrorDocument 404 /petv10/404.php
+ErrorDocument 500 /petv10/500.php
+ErrorDocument 503 /petv10/503.php
+
+# Set security headers (only if mod_headers is enabled)
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://code.jquery.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
+
+# Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /petv10/
+
+# Route favicon_io requests when served from root domain
+RewriteRule ^petv10/favicon_io/(.*)$ favicon_io/$1 [L]
+
+# Redirect missing profile pictures to defaultprofile.jpg
+RewriteRule (^|/)images/profile\.jpg$ defaultprofile.jpg [R=301,L]
+
+# Block access to hidden files and directories (e.g., .git, .env)
+<IfModule mod_rewrite.c>
+    RewriteRule (^|/)\.(?!htaccess|well-known) - [F,L]
+</IfModule>
+
+# Block access to sensitive file types
+<FilesMatch "\.(sql|log|env|bak|old|orig|dist|save|swp|ini|sh|bat)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to backup files
+<FilesMatch "(~|\.bak|\.backup|\.old|\.orig)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+

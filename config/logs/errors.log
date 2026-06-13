@@ -1,0 +1,27 @@
+[2026-06-07 12:27:56] Failed to send email to: qweqwe@pawganic.local
+[2026-06-07 12:32:51] Failed to send email to: qweqwe@pawganic.local
+[2026-06-07 12:33:14] Failed to send email to: qweqwe@pawganic.local
+[2026-06-07 18:22:42] Login error: MySQL server has gone away
+[2026-06-07 19:48:58] Failed to send email to: qweqwe@pawganic.local
+[2026-06-07 19:49:07] Failed to send email to: qweqwe@pawganic.local
+[2026-06-07 19:49:39] Failed to send email to: qweqwe@pawganic.local
+[2026-06-07 19:49:58] Failed to send email to: qweqwe@pawganic.local
+[2026-06-11 19:28:39] Registration error: Duplicate entry 'testuser123' for key 'username'
+[2026-06-11 19:29:02] Failed to send email to: admin4455@gmail.com
+[2026-06-11 19:29:02] Registration error: Duplicate entry 'Testuser12345' for key 'username'
+[2026-06-11 19:29:02] Registration error: Duplicate entry 'Testuser12345' for key 'username'
+[2026-06-11 19:30:40] Failed to send email to: test_5647@test.com
+[2026-06-11 19:31:09] Failed to send email to: test_1317@test.com
+[2026-06-11 19:32:38] Registration error: Duplicate entry 'Testuser12345' for key 'username'
+[2026-06-11 19:33:02] Failed to send email to: admin222@gmail.com
+[2026-06-12 16:36:01] Failed to send email to: admin123@pawganic.local
+[2026-06-13 18:41:56] Failed to send email to: andreicarpio11@gmail.com
+[2026-06-13 18:50:19] Failed to send email to: andreicarpio11@gmail.com
+[2026-06-13 19:21:26] Email sent successfully via Gmail SMTP to: clarktm60@gmail.com
+[2026-06-13 23:13:00] Email sent successfully via Gmail SMTP to: andreicarpio11@gmail.com
+[2026-06-13 23:14:13] Email sent successfully via Gmail SMTP to: andreicarpio11@gmail.com
+[2026-06-13 23:23:43] Email sent successfully via Gmail SMTP to: social_google_590@pawganic.local
+[2026-06-13 23:26:22] Email sent successfully via Gmail SMTP to: social_google_119@pawganic.local
+[2026-06-13 23:31:09] Email sent successfully via Gmail SMTP to: social_facebook_965@pawganic.local
+[2026-06-13 23:31:13] Email sent successfully via Gmail SMTP to: social_facebook_808@pawganic.local
+[2026-06-13 23:31:23] Email sent successfully via Gmail SMTP to: social_facebook_201@pawganic.local

@@ -1,0 +1,158 @@
+[2026-06-13 18:42:09] =======================================
+Status: Simulating/Fallback (Reason: SMTP credentials not configured.)
+To: andreicarpio11@gmail.com
+Subject: Reset Your Password — Pawganic Supplies
+Body:
+
+                        <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #fdf8f0; border: 1px solid rgba(201,145,42,0.18); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(44,26,14,0.1);'>
+                            <div style='background: linear-gradient(135deg, #2c1a0e 0%, #5a2d0c 100%); padding: 30px; text-align: center;'>
+                                <img src='http://localhost/petv10/assets/pagelogo.png' alt='Pawganic Supplies' style='height: 48px; width: auto;'>
+                            </div>
+                            <div style='padding: 30px; color: #2c1a0e; line-height: 1.6;'>
+                                <h2 style='font-family: Georgia, serif; color: #5a2d0c; margin-top: 0;'>Reset Your Password</h2>
+                                <p>Hello <strong>tester</strong>,</p>
+                                <p>We received a request to reset the password for your Pawganic Supplies account. Click the button below to choose a new password. This link will expire in 1 hour.</p>
+                                <div style='text-align: center; margin: 30px 0;'>
+                                    <a href='http://localhost/petv10/reset_password.php?token=110dcebc6de727a596c631fe876d1cdc' style='background: linear-gradient(135deg, #c9912a 0%, #9b6a2f 100%); color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 50px; font-weight: bold; display: inline-block; box-shadow: 0 4px 10px rgba(201,145,42,0.3);'>Reset Password</a>
+                                </div>
+                                <p style='font-size: 0.85rem; color: #9b6a2f;'>If you didn't request this change, you can safely ignore this email. Your password will remain secure.</p>
+                                <hr style='border: none; border-top: 1px solid #ede4d2; margin: 30px 0;'>
+                                <p style='font-size: 0.8rem; color: #9b6a2f; text-align: center;'>Pawganic Supplies · 123 Feline Street, Purrville, PH</p>
+                            </div>
+                        </div>
+                        
+=================================================================
+
+[2026-06-13 18:54:04] =======================================
+Status: Simulating/Fallback (Reason: SMTP credentials not configured.)
+To: andreicarpio11@gmail.com
+Subject: Reset Your Password — Pawganic Supplies
+Body:
+
+                        <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #fdf8f0; border: 1px solid rgba(201,145,42,0.18); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(44,26,14,0.1);'>
+                            <div style='background: linear-gradient(135deg, #2c1a0e 0%, #5a2d0c 100%); padding: 30px; text-align: center;'>
+                                <img src='http://localhost/petv10/assets/pagelogo.png' alt='Pawganic Supplies' style='height: 48px; width: auto;'>
+                            </div>
+                            <div style='padding: 30px; color: #2c1a0e; line-height: 1.6;'>
+                                <h2 style='font-family: Georgia, serif; color: #5a2d0c; margin-top: 0;'>Reset Your Password</h2>
+                                <p>Hello <strong>tester</strong>,</p>
+                                <p>We received a request to reset the password for your Pawganic Supplies account. Click the button below to choose a new password. This link will expire in 1 hour.</p>
+                                <div style='text-align: center; margin: 30px 0;'>
+                                    <a href='http://localhost/petv10/reset_password.php?token=94624e9d14d75e8758e39a4ec455aef6' style='background: linear-gradient(135deg, #c9912a 0%, #9b6a2f 100%); color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 50px; font-weight: bold; display: inline-block; box-shadow: 0 4px 10px rgba(201,145,42,0.3);'>Reset Password</a>
+                                </div>
+                                <p style='font-size: 0.85rem; color: #9b6a2f;'>If you didn't request this change, you can safely ignore this email. Your password will remain secure.</p>
+                                <hr style='border: none; border-top: 1px solid #ede4d2; margin: 30px 0;'>
+                                <p style='font-size: 0.8rem; color: #9b6a2f; text-align: center;'>Pawganic Supplies · 123 Feline Street, Purrville, PH</p>
+                            </div>
+                        </div>
+                        
+=================================================================
+
+[2026-06-13 18:55:18] =======================================
+Status: Simulating/Fallback (Reason: SMTP credentials not configured.)
+To: andreicarpio11@gmail.com
+Subject: Secure Reset Test
+Body:
+This is a test of secure reset.
+=================================================================
+
+[2026-06-13 18:55:37] =======================================
+Status: Simulating/Fallback (Reason: SMTP credentials not configured.)
+To: andreicarpio11@gmail.com
+Subject: Reset Your Password — Pawganic Supplies
+Body:
+
+                        <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #fdf8f0; border: 1px solid rgba(201,145,42,0.18); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(44,26,14,0.1);'>
+                            <div style='background: linear-gradient(135deg, #2c1a0e 0%, #5a2d0c 100%); padding: 30px; text-align: center;'>
+                                <img src='http://localhost/petv10/assets/pagelogo.png' alt='Pawganic Supplies' style='height: 48px; width: auto;'>
+                            </div>
+                            <div style='padding: 30px; color: #2c1a0e; line-height: 1.6;'>
+                                <h2 style='font-family: Georgia, serif; color: #5a2d0c; margin-top: 0;'>Reset Your Password</h2>
+                                <p>Hello <strong>tester</strong>,</p>
+                                <p>We received a request to reset the password for your Pawganic Supplies account. Click the button below to choose a new password. This link will expire in 1 hour.</p>
+                                <div style='text-align: center; margin: 30px 0;'>
+                                    <a href='http://localhost/petv10/reset_password.php?token=8b5fbef8cdb51d3d10d389a5cd55f264' style='background: linear-gradient(135deg, #c9912a 0%, #9b6a2f 100%); color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 50px; font-weight: bold; display: inline-block; box-shadow: 0 4px 10px rgba(201,145,42,0.3);'>Reset Password</a>
+                                </div>
+                                <p style='font-size: 0.85rem; color: #9b6a2f;'>If you didn't request this change, you can safely ignore this email. Your password will remain secure.</p>
+                                <hr style='border: none; border-top: 1px solid #ede4d2; margin: 30px 0;'>
+                                <p style='font-size: 0.8rem; color: #9b6a2f; text-align: center;'>Pawganic Supplies · 123 Feline Street, Purrville, PH</p>
+                            </div>
+                        </div>
+                        
+=================================================================
+
+[2026-06-13 18:55:45] =======================================
+Status: Simulating/Fallback (Reason: SMTP credentials not configured.)
+To: andreicarpio11@gmail.com
+Subject: Reset Your Password — Pawganic Supplies
+Body:
+
+                        <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #fdf8f0; border: 1px solid rgba(201,145,42,0.18); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(44,26,14,0.1);'>
+                            <div style='background: linear-gradient(135deg, #2c1a0e 0%, #5a2d0c 100%); padding: 30px; text-align: center;'>
+                                <img src='http://localhost/petv10/assets/pagelogo.png' alt='Pawganic Supplies' style='height: 48px; width: auto;'>
+                            </div>
+                            <div style='padding: 30px; color: #2c1a0e; line-height: 1.6;'>
+                                <h2 style='font-family: Georgia, serif; color: #5a2d0c; margin-top: 0;'>Reset Your Password</h2>
+                                <p>Hello <strong>tester</strong>,</p>
+                                <p>We received a request to reset the password for your Pawganic Supplies account. Click the button below to choose a new password. This link will expire in 1 hour.</p>
+                                <div style='text-align: center; margin: 30px 0;'>
+                                    <a href='http://localhost/petv10/reset_password.php?token=190467e2c497a51cda682f2d68b81bd7' style='background: linear-gradient(135deg, #c9912a 0%, #9b6a2f 100%); color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 50px; font-weight: bold; display: inline-block; box-shadow: 0 4px 10px rgba(201,145,42,0.3);'>Reset Password</a>
+                                </div>
+                                <p style='font-size: 0.85rem; color: #9b6a2f;'>If you didn't request this change, you can safely ignore this email. Your password will remain secure.</p>
+                                <hr style='border: none; border-top: 1px solid #ede4d2; margin: 30px 0;'>
+                                <p style='font-size: 0.8rem; color: #9b6a2f; text-align: center;'>Pawganic Supplies · 123 Feline Street, Purrville, PH</p>
+                            </div>
+                        </div>
+                        
+=================================================================
+
+[2026-06-13 18:58:17] =======================================
+Status: Simulating/Fallback (Reason: SMTP credentials not configured.)
+To: andreicarpio11@gmail.com
+Subject: Reset Your Password — Pawganic Supplies
+Body:
+
+                        <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #fdf8f0; border: 1px solid rgba(201,145,42,0.18); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(44,26,14,0.1);'>
+                            <div style='background: linear-gradient(135deg, #2c1a0e 0%, #5a2d0c 100%); padding: 30px; text-align: center;'>
+                                <img src='http://localhost/petv10/assets/pagelogo.png' alt='Pawganic Supplies' style='height: 48px; width: auto;'>
+                            </div>
+                            <div style='padding: 30px; color: #2c1a0e; line-height: 1.6;'>
+                                <h2 style='font-family: Georgia, serif; color: #5a2d0c; margin-top: 0;'>Reset Your Password</h2>
+                                <p>Hello <strong>tester</strong>,</p>
+                                <p>We received a request to reset the password for your Pawganic Supplies account. Click the button below to choose a new password. This link will expire in 1 hour.</p>
+                                <div style='text-align: center; margin: 30px 0;'>
+                                    <a href='http://localhost/petv10/reset_password.php?token=7c95c366a1e28198a5c11ccdfdad1ac3' style='background: linear-gradient(135deg, #c9912a 0%, #9b6a2f 100%); color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 50px; font-weight: bold; display: inline-block; box-shadow: 0 4px 10px rgba(201,145,42,0.3);'>Reset Password</a>
+                                </div>
+                                <p style='font-size: 0.85rem; color: #9b6a2f;'>If you didn't request this change, you can safely ignore this email. Your password will remain secure.</p>
+                                <hr style='border: none; border-top: 1px solid #ede4d2; margin: 30px 0;'>
+                                <p style='font-size: 0.8rem; color: #9b6a2f; text-align: center;'>Pawganic Supplies · 123 Feline Street, Purrville, PH</p>
+                            </div>
+                        </div>
+                        
+=================================================================
+
+[2026-06-13 23:04:47] =======================================
+Status: Simulating/Fallback (Reason: SMTP Error: Could not authenticate.)
+To: clarktm60@gmail.com
+Subject: Reset Your Password — Pawganic Supplies
+Body:
+
+                        <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #fdf8f0; border: 1px solid rgba(201,145,42,0.18); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(44,26,14,0.1);'>
+                            <div style='background: linear-gradient(135deg, #2c1a0e 0%, #5a2d0c 100%); padding: 30px; text-align: center;'>
+                                <img src='cid:pagelogo' alt='Pawganic Supplies' style='height: 48px; width: auto;'>
+                            </div>
+                            <div style='padding: 30px; color: #2c1a0e; line-height: 1.6;'>
+                                <h2 style='font-family: Georgia, serif; color: #5a2d0c; margin-top: 0;'>Reset Your Password</h2>
+                                <p>Hello <strong>clarktm</strong>,</p>
+                                <p>We received a request to reset the password for your Pawganic Supplies account. Click the button below to choose a new password. This link will expire in 1 hour.</p>
+                                <div style='text-align: center; margin: 30px 0;'>
+                                    <a href='http://localhost/petv10/reset_password.php?token=b1eda82a5dd804d305ef054c9506d41d' style='background: linear-gradient(135deg, #c9912a 0%, #9b6a2f 100%); color: #ffffff; text-decoration: none; padding: 14px 32px; border-radius: 50px; font-weight: bold; display: inline-block; box-shadow: 0 4px 10px rgba(201,145,42,0.3);'>Reset Password</a>
+                                </div>
+                                <p style='font-size: 0.85rem; color: #9b6a2f;'>If you didn't request this change, you can safely ignore this email. Your password will remain secure.</p>
+                                <hr style='border: none; border-top: 1px solid #ede4d2; margin: 30px 0;'>
+                                <p style='font-size: 0.8rem; color: #9b6a2f; text-align: center;'>Pawganic Supplies · 123 Feline Street, Purrville, PH</p>
+                            </div>
+                        </div>
+                        
+=================================================================
+

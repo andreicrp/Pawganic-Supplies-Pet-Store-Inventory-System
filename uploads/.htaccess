@@ -1,0 +1,22 @@
+# Prevent PHP execution in uploads directory
+<FilesMatch "\.ph(p[3-8]?|t|tml|ps)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent other executable types
+<FilesMatch "\.(cgi|pl|py|sh|bat|exe|com|dll|msi)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Only allow image files
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|ico|svg)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Disable script execution
+Options -ExecCGI
+RemoveHandler .php .phtml .php3 .php4 .php5 .php7 .phps .pht
+AddType text/plain .php .phtml .php3 .php4 .php5 .php7 .phps .pht

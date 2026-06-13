@@ -1,0 +1,8 @@
+<?php
+/**
+ * Example local configuration overrides for Pawganic Supplies
+ * Copy this file to config.local.php and fill in your actual credentials.
+ */
+define('SMTP_PASS', 'your-gmail-app-password');
+define('GOOGLE_CLIENT_ID', 'your-google-client-id');
+define('GOOGLE_CLIENT_SECRET', 'your-google-client-secret');

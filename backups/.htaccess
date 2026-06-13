@@ -1,0 +1,2 @@
+# Prevent direct access to backup files
+Deny from all

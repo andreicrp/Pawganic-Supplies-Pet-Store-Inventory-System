@@ -1,0 +1,11 @@
+# Ignore local sensitive configuration file
+config/config.local.php
+
+# PHP errors log file
+config/logs/
+logs/
+*.log
+
+# Other system files
+.DS_Store
+Thumbs.db

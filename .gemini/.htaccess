@@ -1,0 +1,2 @@
+# Prevent web access to .gemini configuration
+Deny from all
