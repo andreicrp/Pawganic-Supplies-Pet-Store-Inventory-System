@@ -1,9 +1,9 @@
 # 🐾 Pawganic Supplies
 
-[![PHP Version](https://img.shields.counts/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
-[![MySQL](https://img.shields.counts/badge/MySQL-8.0%2B-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![Bootstrap](https://img.shields.counts/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![PHPMailer](https://img.shields.counts/badge/PHPMailer-6.9-brightgreen?style=for-the-badge&logo=php)](https://github.com/PHPMailer/PHPMailer)
+[![PHP Version](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![PHPMailer](https://img.shields.io/badge/PHPMailer-6.9-brightgreen?style=for-the-badge&logo=php)](https://github.com/PHPMailer/PHPMailer)
 
 > A premium, full-featured PHP-based e-commerce platform for pet supplies, featuring secure authentication, automated transactional email delivery, and an interactive administrator dashboard.
 
