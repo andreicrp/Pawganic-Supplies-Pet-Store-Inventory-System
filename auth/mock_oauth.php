@@ -283,12 +283,12 @@ $brandName = "Pawganic Supplies";
             <p class="google-subtitle">to continue to <span><?php echo htmlspecialchars($brandName); ?></span></p>
 
             <div class="google-account-list">
-                <!-- Clark account row -->
+                <!-- User One account row -->
                 <a href="<?php echo htmlspecialchars($targetUrl); ?>" class="google-account-row">
-                    <div class="google-avatar">C</div>
+                    <div class="google-avatar">U</div>
                     <div class="google-account-info">
-                        <div class="google-account-name">Clark TM</div>
-                        <div class="google-account-email">clarktm60@gmail.com</div>
+                        <div class="google-account-name">User One</div>
+                        <div class="google-account-email">user@gmail.com</div>
                     </div>
                 </a>
 

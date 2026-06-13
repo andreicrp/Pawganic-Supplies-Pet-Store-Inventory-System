@@ -9,16 +9,16 @@ if (isset($_GET['social'])) {
     $social_provider = sanitizeInput($_GET['social'], 'text');
     if ($social_provider === 'google' || $social_provider === 'facebook') {
         try {
-            // Find a valid account to simulate social login (clarktm -> clarktm60 -> tester -> first user in db)
+            // Find a valid account to simulate social login (user1 -> first user in db)
             $username = '';
             $id = 0;
             $role = '';
             $balance = 0;
             $profile_pic = '';
             
-            // Try to fetch clarktm
+            // Try to fetch user1
             $stmt = $conn->prepare("SELECT id, username, role, balance, profile_pic FROM users WHERE username=?");
-            $test_username = 'clarktm';
+            $test_username = 'user1';
             $stmt->bind_param("s", $test_username);
             $stmt->execute();
             $stmt->store_result();
@@ -27,34 +27,6 @@ if (isset($_GET['social'])) {
                 $stmt->fetch();
             }
             $stmt->close();
-            
-            // Try clarktm60 if still empty
-            if (empty($username)) {
-                $stmt = $conn->prepare("SELECT id, username, role, balance, profile_pic FROM users WHERE username=?");
-                $test_username = 'clarktm60';
-                $stmt->bind_param("s", $test_username);
-                $stmt->execute();
-                $stmt->store_result();
-                if ($stmt->num_rows > 0) {
-                    $stmt->bind_result($id, $username, $role, $balance, $profile_pic);
-                    $stmt->fetch();
-                }
-                $stmt->close();
-            }
-            
-            // Try tester if still empty
-            if (empty($username)) {
-                $stmt = $conn->prepare("SELECT id, username, role, balance, profile_pic FROM users WHERE username=?");
-                $test_username = 'tester';
-                $stmt->bind_param("s", $test_username);
-                $stmt->execute();
-                $stmt->store_result();
-                if ($stmt->num_rows > 0) {
-                    $stmt->bind_result($id, $username, $role, $balance, $profile_pic);
-                    $stmt->fetch();
-                }
-                $stmt->close();
-            }
             
             // Fallback to first user in database if still empty
             if (empty($username)) {

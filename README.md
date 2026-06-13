@@ -95,7 +95,7 @@ Implements a secure token-based forgot password recovery system:
 Includes custom mock OAuth consent screens (`mock_oauth.php`) for both Google and Facebook, providing a realistic sign-in transition:
 - **Google Selector**: Displays an account selection card listing mock profiles.
 - **Facebook Consent Dialog**: Shows a data-sharing review screen.
-- **Smart Fallback**: The mock login automatically handles lookups for existing accounts (e.g. `clarktm`), falling back sequentially to other active accounts or the first database user to avoid authorization errors.
+- **Smart Fallback**: The mock login automatically handles lookups for existing accounts (e.g. `user1`), falling back sequentially to other active accounts or the first database user to avoid authorization errors.
 - **Auto-Registration**: Signing up with Google/Facebook automatically registers a unique username, assigns a **₱20,000.00** starting balance, delivers a welcome SMTP email, and establishes the active session.
 
 ### 4. Git-Protected Credentials (Local Config Overrides)
@@ -181,8 +181,7 @@ To configure email delivery and credentials locally:
 ### Database Setup
 1. Open phpMyAdmin at `http://localhost/phpmyadmin`.
 2. Create a new database named **`pet_store_inventory`**.
-3. Go to **Import**, choose **`database/pet_store_inventoryv10.sql`** from the project directory, and click import.
-4. Import **`database/add_login_attempts_table.sql`** to enable rate-limiting brute-force lockouts.
+3. Go to **Import**, choose **`pawganic_data.sql`** from the project root directory, and click import to load the pre-configured clean database setup.
 
 ---
 
@@ -195,11 +194,11 @@ To configure email delivery and credentials locally:
 
 ### Sample Login Credentials
 * **Customer Account**:
-  * Username: `clarktm`
-  * Password: *(Use the standard password created during register or reset via forgot password flow)*
+  * Username: `user1`
+  * Password: `user1`
 * **Administrator Account**:
   * Username: `admin1`
-  * Password: `Password123`
+  * Password: `admin1`
 
 ---
 
