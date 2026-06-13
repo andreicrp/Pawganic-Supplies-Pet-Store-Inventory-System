@@ -1,306 +1,220 @@
 # 🐾 Pawganic Supplies
 
-> A full-featured PHP-based pet store e-commerce web application built with XAMPP, MySQL, and Bootstrap 5.
+[![PHP Version](https://img.shields.counts/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
+[![MySQL](https://img.shields.counts/badge/MySQL-8.0%2B-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Bootstrap](https://img.shields.counts/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![PHPMailer](https://img.shields.counts/badge/PHPMailer-6.9-brightgreen?style=for-the-badge&logo=php)](https://github.com/PHPMailer/PHPMailer)
+
+> A premium, full-featured PHP-based e-commerce platform for pet supplies, featuring secure authentication, automated transactional email delivery, and an interactive administrator dashboard.
 
 ---
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Database Schema](#database-schema)
-- [Getting Started](#getting-started)
+- [Overview](#-overview)
+- [System Architecture](#%EF%B8%8F-system-architecture)
+- [Key Features](#-key-features)
+- [Technical Highlights](#-technical-highlights)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Database Schema](#-database-schema)
+- [Getting Started](#-getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Local Overrides Configuration](#local-overrides-configuration)
   - [Database Setup](#database-setup)
-- [Configuration](#configuration)
-- [Usage](#usage)
-  - [Customer Panel](#customer-panel)
-  - [Admin Panel](#admin-panel)
-- [Security](#security)
-- [Contributing](#contributing)
-- [License](#license)
+- [Usage & Credentials](#-usage--credentials)
+- [Security Features](#-security-features)
+- [License](#-license)
 
 ---
 
 ## 📌 Overview
 
-**Pawganic Supplies** is a fully functional pet store e-commerce platform built using PHP and MySQL on a XAMPP local server stack. It supports customer-facing shopping features and a robust admin management panel — covering everything from product listings and cart management to order processing, discount codes, and user account management.
+**Pawganic Supplies** is a robust e-commerce web application built for local pet stores. Leveraging a classic MVC-like file structure, it offers customers a responsive shopping experience (browsing organic pet food, toys, and accessories, maintaining wishlists, applying coupons, and walking through checkout) combined with a robust management dashboard for store administrators.
 
 ---
 
-## ✨ Features
+## 🏗️ System Architecture
 
-### 🛒 Customer Features
-- **User Registration & Login** — Secure account creation with hashed passwords and session management
-- **Product Browsing** — Browse pet products by category (Food, Toys, Accessories)
-- **Product Detail Pages** — Detailed view with descriptions, pricing, and stock availability
-- **Shopping Cart** — Add, update, and remove items before checkout
-- **Favorites / Wishlist** — Save preferred products for later
-- **Checkout & Payment** — Multiple payment methods: GCash, PayPal, MasterCard, Debit/Credit Card, Apple Pay
-- **Order History** — View past purchases and transaction statuses
-- **User Profile** — Update personal info, delivery address, and profile picture
-- **Cat Care Tips** — Informational content page for pet care guidance
-- **Coupon / Discount Validation** — Apply discount codes at checkout
+```mermaid
+graph TD
+    Client[Browser Client]
+    Router[Root PHP Route Wrapper]
+    Controller[Auth / Pages Controller]
+    DB[(MySQL Database)]
+    SMTP[Gmail SMTP Server]
+    OAuth[Google/Facebook Consent mock_oauth.php]
 
-### 🔧 Admin Features
-- **Dashboard** — Overview of store activity and statistics
-- **Product Management** — Add, edit, and delete products with image upload and expiry tracking
-- **Order Management** — View and update the status of all customer transactions
-- **User Account Management** — List, view, and manage registered users
-- **Discount Management** — Create and manage promotional discount codes
-- **Database Backup** — Download and delete database backups directly from the admin panel
-- **Stock Updates** — Real-time inventory management
+    Client -->|HTTP Request| Router
+    Router -->|Includes| Controller
+    Controller -->|Prepared Statements| DB
+    Controller -->|PHPMailer TLS/SSL| SMTP
+    Controller -->|Redirect| OAuth
+    OAuth -->|Callback Parameters| Controller
+```
+
+---
+
+## ✨ Key Features
+
+### 🛒 Customer Hub
+- **Authentication Gateway** — Standard sign-in/registration and social login integration.
+- **Product Catalog** — Browsing and searching by category (`Food`, `Toys`, `Accessories`).
+- **Wishlist & Favorites** — Dedicated wishlist storage to bookmark preferred supplies.
+- **Shopping Cart** — Real-time quantity updating, coupon validation, and subtotal calculation.
+- **Multi-Method Checkout** — Supports mock integrations for GCash, PayPal, Mastercard, Credit Card, and Apple Pay.
+- **Order Tracker** — Complete personal transaction and delivery progress tracker.
+- **Profile Customization** — Modify profile info, upload custom avatars, and track virtual balances.
+
+### 🔧 Administrative Control Center
+- **Statistical Dashboard** — High-level sales metrics, user count, and transaction logs.
+- **Catalog Management** — Full CRUD actions for products (image uploads, inventory, description, and status).
+- **Order Processing** — Fulfill, track, and update delivery statuses of all customer orders.
+- **User Account Management** — Moderate user permissions and roles (`user` vs `admin`).
+- **Discount & Coupons** — Create, modify, and monitor active promotional discount codes.
+- **Live Database Maintenance** — Perform immediate raw database backups and downloads.
+
+---
+
+## 🛡️ Technical Highlights
+
+### 1. SMTP Email Integration (PHPMailer)
+All transactional emails (Registration Welcome, Purchase Confirmation, and Password Recovery resets) are routed through **PHPMailer** using SMTP over Port 465 (SSL). 
+- **Inline Embedded Logo**: Embedded using CID tags (`cid:pagelogo`) to guarantee layout visibility in mail apps.
+- **Letgo-inspired Minimalist Layout**: Minimalist email layouts featuring side-by-side header brand rows, centered body content, flat gold action buttons, and lowercase bold signatures.
+- **Unicode Dash Resolution**: Native UTF-8 configurations to ensure em-dashes and characters render cleanly without broken encoding bytes.
+
+### 2. Secure Password Recovery Flow
+Implements a secure token-based forgot password recovery system:
+- Generates random 32-character hex tokens.
+- Hashing is performed via **SHA-256** before storing the token in the database, preventing database leaks from exposing active reset links.
+- Set to auto-expire 1 hour after generation.
+
+### 3. Google & Facebook Authentication Mockup
+Includes custom mock OAuth consent screens (`mock_oauth.php`) for both Google and Facebook, providing a realistic sign-in transition:
+- **Google Selector**: Displays an account selection card listing mock profiles.
+- **Facebook Consent Dialog**: Shows a data-sharing review screen.
+- **Smart Fallback**: The mock login automatically handles lookups for existing accounts (e.g. `clarktm`), falling back sequentially to other active accounts or the first database user to avoid authorization errors.
+- **Auto-Registration**: Signing up with Google/Facebook automatically registers a unique username, assigns a **₱20,000.00** starting balance, delivers a welcome SMTP email, and establishes the active session.
+
+### 4. Git-Protected Credentials (Local Config Overrides)
+To prevent accidentally committing sensitive SMTP passwords or Google OAuth keys to Git, the configuration implements local overrides:
+- **`config/config.local.php`**: Holds private keys locally and is fully excluded from commits via `.gitignore`.
+- **`config/config.local.php.example`**: A safe template file tracked by Git.
+- **`config/config.php`**: Automatically reads `config.local.php` first, falling back to generic placeholders if it doesn't exist.
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer       | Technology                          |
-|-------------|-------------------------------------|
-| Backend     | PHP 8.2                             |
-| Database    | MySQL / MariaDB 10.4 (via XAMPP)    |
-| Frontend    | HTML5, CSS3, Bootstrap 5.3          |
-| Icons       | Font Awesome 6.4                    |
-| Typography  | Google Fonts (Playfair Display, DM Sans) |
-| Server      | Apache (XAMPP)                      |
-| DB Admin    | phpMyAdmin                          |
+- **Backend**: PHP 8.2+ (with cURL & OpenSSL enabled)
+- **Database**: MySQL / MariaDB 10.4+
+- **Frontend**: HTML5, CSS3, Bootstrap 5.3
+- **Libraries**: PHPMailer 6.9+
+- **Icons**: Font Awesome 6.4
 
 ---
 
 ## 📁 Project Structure
 
-```
+```text
 petv10/
-├── admin/                  # Admin-only pages (dashboard, product mgmt, orders)
-│   ├── admin.php           # Main admin dashboard
-│   ├── add.php             # Add new product
-│   ├── admin_purchases.php # Order/transaction management
-│   ├── discount_management.php
-│   ├── manage_accounts.php
-│   ├── download_backup.php
-│   └── delete_backup.php
-│
-├── auth/                   # Authentication handlers
-│   ├── login.php
-│   ├── register.php
-│   └── logout.php
-│
-├── config/                 # App configuration (protected)
-│   ├── config.php          # DB credentials, session & security settings
-│   ├── db.php              # Database connection & helpers
-│   ├── mail.php            # Mail configuration
-│   └── logs/              # Application error logs
-│
-├── database/               # SQL schema and backup files
-│   ├── pet_store_inventoryv10.sql   # Latest schema with seed data
-│   ├── add_login_attempts_table.sql
-│   └── backups/
-│
-├── pages/                  # Customer-facing pages
-│   ├── about.php
-│   ├── cat_care_tips.php
-│   ├── checkout.php
-│   ├── process_payment.php
-│   ├── cart/              # Cart views & actions
-│   ├── product/           # Product detail pages
-│   └── profile/           # User profile pages
-│
-├── includes/               # Shared PHP utilities & AJAX handlers
-│   ├── validate_coupon.php
-│   └── update_stock.php
-│
-├── assets/                 # Static assets (images, banners, logo)
-├── uploads/                # User-uploaded files (profile pictures, etc.)
-├── images/                 # Product images
-├── favicon_io/             # Favicon assets
-│
-├── index.php               # Entry point — redirects to main
-├── main.php                # Main storefront / homepage
-├── shop.php                # Shop listing page
-├── product.php             # Product detail entry point
-├── cart.php                # Cart entry point
-├── checkout.php            # Checkout entry point
-├── login.php               # Login entry point
-├── register.php            # Register entry point
-├── profile.php             # Profile entry point
-├── favorites.php           # Favorites/Wishlist entry point
-├── purchase_history.php    # Order history entry point
-├── about.php               # About page entry point
-├── .htaccess               # Apache routing & security rules
-└── README.md
+├── admin/                  # Admin-only dashboard, inventory & user management
+├── auth/                   # Authentication logic, login, register, mock OAuth
+├── config/                 # Configurations, db connectors, SMTP templates
+│   ├── config.local.php.example   # local config template
+│   └── logs/               # Local PHP logs
+├── database/               # SQL schema imports and database backups
+├── includes/               # Shared handlers (PHPMailer, AJAX stock updates)
+├── pages/                  # Customer-facing views (checkout, cart, profile)
+├── assets/                 # Brand logo and page banners
+├── uploads/                # User avatar uploads
+├── .gitignore              # Ignored local config overrides and log dumps
+├── index.php               # Front-controller wrapper
+├── main.php                # Homepage
+└── mock_oauth.php          # OAuth root router wrapper
 ```
-
-> **Note:** Most root-level `.php` files are thin entry points that `require` the actual logic from subdirectories (`pages/`, `admin/`, `auth/`). This keeps routes clean while centralizing logic.
 
 ---
 
 ## 🗄 Database Schema
 
-The application uses the `pet_store_inventory` MySQL database with the following tables:
-
-| Table          | Description                                              |
-|----------------|----------------------------------------------------------|
-| `users`        | Registered customers and admins with roles and balances  |
-| `products`     | Product catalog with categories, pricing, and stock      |
-| `cart`         | Active shopping cart items per user                      |
-| `transactions` | Completed orders with payment and delivery details       |
-
-### Entity Relationships
-- A **user** can have many **cart** items and **transactions**
-- Each **cart** item and **transaction** references a single **product**
-- Products have categories: `Food`, `Toy`, `Accessory`
-- Users have roles: `admin` or `user`
+| Table             | Description                                                             |
+|-------------------|-------------------------------------------------------------------------|
+| `users`           | User credentials, profile picture paths, roles, and virtual balances.   |
+| `products`        | Product catalog with details, pricing, category, and inventory levels.  |
+| `cart`            | User shopping cart items.                                               |
+| `transactions`    | Completed transactions with billing, delivery details, and items.        |
+| `password_resets` | Secure SHA-256 hashed recovery tokens and expiration timestamps.        |
+| `login_attempts`  | Brute-force protection counter logs to lock out malicious IPs/usernames.|
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-- [XAMPP](https://www.apachefriends.org/) (PHP 8.2+, Apache, MySQL/MariaDB)
-- A web browser (Chrome recommended)
-- phpMyAdmin (bundled with XAMPP)
+- **XAMPP** (or any server stack with PHP 8.2+ and MySQL/MariaDB)
+- **Composer** (Not required, PHPMailer is integrated locally)
 
 ### Installation
-
-1. **Clone or download** this repository into your XAMPP `htdocs` directory:
+1. Extract or clone this repository to your XAMPP `htdocs` folder:
    ```bash
-   git clone <repository-url> C:/xampp/htdocs/petv10
-   ```
-   Or simply extract the project folder to:
-   ```
    C:\xampp\htdocs\petv10\
    ```
+2. Start Apache and MySQL via the **XAMPP Control Panel**.
 
-2. **Start XAMPP** — Launch the XAMPP Control Panel and start:
-   - ✅ Apache
-   - ✅ MySQL
-
-3. **Access the application** at:
+### Local Overrides Configuration
+To configure email delivery and credentials locally:
+1. Navigate to the `config/` directory.
+2. Duplicate the file `config.local.php.example` and rename it to **`config.local.php`**:
+   ```bash
+   cp config/config.local.php.example config/config.local.php
    ```
-   http://localhost/petv10
+3. Open `config.local.php` in a text editor and fill in your Gmail App Password and Google OAuth credentials:
+   ```php
+   define('SMTP_PASS', 'your-gmail-app-password');
+   define('GOOGLE_CLIENT_ID', 'your-google-client-id');
+   define('GOOGLE_CLIENT_SECRET', 'your-google-client-secret');
    ```
 
 ### Database Setup
-
-1. Open **phpMyAdmin** in your browser:
-   ```
-   http://localhost/phpmyadmin
-   ```
-
-2. Create a new database named **`pet_store_inventory`**
-
-3. Select the new database, go to the **Import** tab, and import:
-   ```
-   database/pet_store_inventoryv10.sql
-   ```
-
-4. *(Optional)* Import the login attempts table for rate limiting:
-   ```
-   database/add_login_attempts_table.sql
-   ```
-
-The database comes pre-seeded with sample products and test user accounts.
+1. Open phpMyAdmin at `http://localhost/phpmyadmin`.
+2. Create a new database named **`pet_store_inventory`**.
+3. Go to **Import**, choose **`database/pet_store_inventoryv10.sql`** from the project directory, and click import.
+4. Import **`database/add_login_attempts_table.sql`** to enable rate-limiting brute-force lockouts.
 
 ---
 
-## ⚙️ Configuration
+## 🖥️ Usage & Credentials
 
-All application settings are managed in [`config/config.php`](config/config.php):
+### Access Links
+* **Homepage**: `http://localhost/petv10/`
+* **Shop**: `http://localhost/petv10/shop.php`
+* **Admin Panel**: `http://localhost/petv10/admin/admin.php`
 
-```php
-// Database
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');       // ⚠️ Change for production
-define('DB_PASS', '');           // ⚠️ Change for production
-define('DB_NAME', 'pet_store_inventory');
-
-// Application Base URL
-define('BASE_URL', 'http://localhost/petv10');
-
-// Session
-define('SESSION_TIMEOUT', 1800);  // 30 minutes
-
-// Security
-define('MAX_LOGIN_ATTEMPTS', 5);  // Brute-force protection
-define('LOGIN_LOCKOUT_TIME', 900); // 15-minute lockout
-```
-
-> ⚠️ **For production deployment**, change the database credentials, set a strong password, create a dedicated MySQL user with limited privileges, and update `BASE_URL` to your live domain.
+### Sample Login Credentials
+* **Customer Account**:
+  * Username: `clarktm`
+  * Password: *(Use the standard password created during register or reset via forgot password flow)*
+* **Administrator Account**:
+  * Username: `admin1`
+  * Password: `Password123`
 
 ---
 
-## 🖥 Usage
-
-### Customer Panel
-
-| Action             | URL                             |
-|--------------------|---------------------------------|
-| Homepage           | `http://localhost/petv10`       |
-| Shop               | `http://localhost/petv10/shop`  |
-| Cart               | `http://localhost/petv10/cart`  |
-| Login              | `http://localhost/petv10/login` |
-| Register           | `http://localhost/petv10/register` |
-| Profile            | `http://localhost/petv10/profile` |
-| Order History      | `http://localhost/petv10/purchase_history` |
-| Favorites          | `http://localhost/petv10/favorites` |
-| About              | `http://localhost/petv10/about` |
-
-#### Sample Customer Credentials (from seed data)
-```
-Username: user1
-Password: (use the hashed password via registration or reset)
-```
-
-### Admin Panel
-
-| Action                  | URL                                        |
-|-------------------------|--------------------------------------------|
-| Admin Dashboard         | `http://localhost/petv10/admin`            |
-| Manage Products         | `http://localhost/petv10/admin` → Products |
-| Manage Orders           | `http://localhost/petv10/admin_purchases`  |
-| Manage Accounts         | `http://localhost/petv10/manage_accounts`  |
-| Discount Management     | `http://localhost/petv10/discount_management` |
-
-> Admin access requires a user account with `role = 'admin'` in the database.
-
----
-
-## 🔒 Security
-
-This project implements several security measures:
-
-- **Password Hashing** — All passwords stored using PHP's `password_hash()` with `bcrypt`
-- **CSRF Protection** — CSRF tokens with 1-hour expiry on sensitive forms
-- **Session Management** — Named sessions with 30-minute timeout (`pawganic_session`)
-- **Brute-Force Protection** — Account lockout after 5 failed login attempts (15-minute cooldown)
-- **Directory Protection** — Sensitive directories (`config/`, `auth/`, `admin/`, `database/`) protected via `.htaccess`
-- **Input Sanitization** — Database queries use prepared statements to prevent SQL injection
-- **Error Logging** — Application errors logged to `config/logs/errors.log`
-
----
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/your-feature-name`
-3. Commit your changes: `git commit -m "feat: add your feature"`
-4. Push to your branch: `git push origin feature/your-feature-name`
-5. Open a Pull Request
-
-Please follow [Conventional Commits](https://www.conventionalcommits.org/) for commit messages.
+## 🔒 Security Features
+- **Password Hashing** — Salting and hashing via `bcrypt` algorithms.
+- **CSRF Token Validation** — Form validations checking state tokens.
+- **Brute-Force Rate Limiting** — Automatically blocks login submissions for 15 minutes after 5 consecutive failures.
+- **Directory Access Control** — `.htaccess` rules block direct web browsing of internal asset directories.
 
 ---
 
 ## 📄 License
 
-This project is intended for educational and academic purposes. All rights reserved.
-
----
+This repository is built for educational and academic purposes. All rights reserved.
 
 <div align="center">
-  <sub>Built with ❤️ for pets and their humans · Pawganic Supplies &copy; 2026</sub>
+  <sub>Pawganic Supplies &copy; 2026</sub>
 </div>
